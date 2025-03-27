@@ -1,18 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { motion } from "framer-motion";
-import { assets } from "../assets/assets";  // Adjust this import if necessary
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { assets } from "../assets/assets";
 
 const Hero = () => {
   const typedRef = useRef(null);
 
   useEffect(() => {
+  
     const typed = new Typed(typedRef.current, {
       strings: [
-        "a Frontend Developer.",
-        "a React Enthusiast.",
-        "a Lifelong Learner.",
-        "an Open Source Contributor.",
+       
+        "Frontend Engineer",
+        "JavaScript Enthusiast",
+        "React JS Developer"
       ],
       typeSpeed: 50,
       backSpeed: 30,
@@ -25,99 +27,108 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative mt-10 py-12 px-6 lg:px-16 bg-white text-gray-900">
-      {/* Profile Image with Motion Animation */}
-      <div className="flex justify-center mb-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 1 }}
+    <div className="relative h-screen w-full bg-white flex mt-10 flex-col justify-center items-center text-white text-center px-4 overflow-hidden">
+      {/* Left Side - Social Icons with Line */}
+      <div className="absolute left-4 md:left-8 lg:left-20  top-1/2 transform -translate-y-1/2 flex flex-col space-y-4 text-2xl">
+        <div className="absolute left-1/2 h-20 top-40 w-0.5 bg-blue-500 opacity-50 -translate-x-1/2"></div>
+        <a
+          href="https://github.com/SufyanAli56"
+          className="text-gray-500 hover:text-gray-300 transition duration-300"
         >
-          <img
-            src={assets.profile_img}
-            alt="Profile Image"
-            className="rounded-full w-34 lg:w-40 shadow-lg"
-          />
-        </motion.div>
+          <FaGithub />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/sufyan-ali-145589289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+          className="text-gray-500 hover:text-gray-300 transition duration-300"
+        >
+          <FaLinkedin />
+        </a>
+        <a
+          href="#"
+          className="text-gray-500 hover:text-gray-300 transition duration-300"
+        >
+          <FaTwitter />
+        </a>
+        <a
+          href="#"
+          className="text-gray-500 hover:text-gray-300 transition duration-300"
+        >
+          <FaInstagram />
+        </a>
       </div>
 
-      {/* Greeting Section */}
-      <motion.h3
-        className="flex justify-center items-center gap-2 text-xl md:text-2xl mb-4 bg-white text-gray-900 transition-colors duration-300 font-Ovo"
+      {/* Right Side - Scrolling Down Text */}
+      <motion.div
+        className="absolute right-4 md:right-8 lg:right-20 bottom-20 text-gray-300 rotate-90 text-lg"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        transition={{ duration: 0.5 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 1,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
       >
-        Hi! I'm Sufyan Ali{" "}
-        <motion.div
-          className="w-6"
-          animate={{ rotate: [0, 15, 0] }}
-          transition={{ repeat: Infinity, duration: 1 }}
-        >
-          <img src={assets.hand_icon} alt="Hand Wave" />
-        </motion.div>
-      </motion.h3>
+        Scrolling Down
+      </motion.div>
 
-      {/* Title with Typed.js */}
-      <motion.h1
-        className="text-center text-4xl sm:text-6xl lg:text-[66px] font-bold font-Ovo text-gray-900 leading-tight"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        transition={{ duration: 0.5 }}
-      >
-        Frontend Web Developer <br />
-      </motion.h1>
-      <div className="flex justify-center items-center text-4xl font-Ovo font-extrabold text-blue-500">
-        <span ref={typedRef}></span>
-      </div>
-
-      {/* Description */}
       <motion.p
-        className="text-center text-gray-700 text-lg mt-6 max-w-3xl mx-auto leading-relaxed"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
+        className="text-lg md:text-xl text-gray-500 font-light mt-24"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
       >
-        I am a dedicated and enthusiastic{" "}
-        <strong className="text-blue-500">Next.js</strong> and{" "}
-        <strong className="text-blue-500">React.js</strong> developer with a
-        passion for building high-performance, scalable web applications. My
-        expertise lies in creating seamless user interfaces, optimizing
-        application performance, and delivering responsive designs that provide
-        exceptional user experiences. I aim to bring ideas to life through
-        innovative and effective solutions.
+        Hello, I am
       </motion.p>
 
-      {/* Buttons */}
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-        {/* Contact Button (Coming from the left) */}
-        <motion.a
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          href="#contact"
-          className="px-10 py-3 rounded-full bg-blue-500 text-white text-lg font-medium flex items-center gap-2 shadow-md hover:bg-blue-600 transition"
-        >
-          Contact Me
-          <img src={assets.right_arrow_white} alt="Arrow Icon" className="w-4" />
-        </motion.a>
+      <motion.h1
+        className="text-5xl text-gray-500 md:text-6xl font-extrabold mt-2"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        Sufyan Ali
+      </motion.h1>
 
-        {/* Resume Button (Coming from the right) */}
-        <motion.a
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          href={assets.resume_url}  // Assuming the resume is hosted in the `assets` folder
-          download
-          className="px-10 py-3 rounded-full border border-gray-300 text-gray-700 text-lg font-medium flex items-center gap-2 shadow-md hover:bg-gray-100 transition"
+      {/* Animated Text */}
+      <p className="text-lg md:text-xl font-medium mt-2 text-gray-300">
+        <span ref={typedRef} className="text-yellow-400 font-bold"></span>
+      </p>
+
+      {/* Buttons Section with Motion Effects */}
+      <div className="mt-6 flex space-x-4">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="px-6 py-3 bg-white text-blue-900 cursor-pointer font-semibold text-lg rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
         >
-          My Resume
-          <img src={assets.download_icon} alt="Download Icon" className="w-4" />
-        </motion.a>
+          Let's Talk
+        </motion.button>
+
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="px-6 py-3 bg-blue-600 text-white cursor-pointer font-semibold text-lg rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+        >
+          My Work
+        </motion.button>
       </div>
+
+      {/* Profile Image with Motion Animation */}
+      <motion.div
+        className="mt-8 relative"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        whileHover={{ scale: 1.1, rotate: 5 }}
+      >
+        <img
+          src={assets.profile_img}
+          alt="Profile"
+          className="w-48 h-48 md:w-64 md:h-64 lg:w-90 lg:h-110 rounded-t-full rounded-b-none object-cover border-4 border-white shadow-lg"
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white"></div>
+      </motion.div>
     </div>
   );
 };
