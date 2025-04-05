@@ -1,7 +1,7 @@
 import React from "react"; 
 import { assets, infoList, toolsData } from "../assets/assets"; // Adjust the import path based on your file structure.
 import { motion } from "framer-motion";
-
+import Sufyan2 from '../assets/public/Sufyan-2.jpeg'
 const About = () => {
   return (
     <motion.div
@@ -39,7 +39,7 @@ const About = () => {
           transition={{ duration: 1 }}
         >
           <img
-            src={assets.profile_img}
+            src={Sufyan2}
             alt="Profile"
             className="w-full rounded-3xl"
           />

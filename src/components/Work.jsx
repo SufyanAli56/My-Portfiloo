@@ -2,7 +2,7 @@ import React from "react";
 import { assets } from "../assets/assets"; // Adjust the path based on your project structure
 import Img1 from "../assets/public/work-1.png";
 import Img2 from "../assets/public/work-2.png";
-import Img3 from "../assets/public/work-3.png";
+import Img3 from "../assets/public/Coinest.png";
 import Img4 from "../assets/public/work 4.png";
 import { motion } from "framer-motion";
 
@@ -20,8 +20,8 @@ const Work = () => {
     },
     {
       image: Img3,
-      name: "E-commerce",
-      link: "https://cheerful-daifuku-8e2d24.netlify.app",
+      name: "Dashboard",
+      link: "https://bespoke-croissant-01be71.netlify.app/",
     },
     {
       image: Img4,
